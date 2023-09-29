@@ -13,7 +13,7 @@
 		<updated>2023-09-29T00:00:00+00:00</updated>
 		<link href="https://iamonyou.top/blog/deploy-zola-to-cf-pages/" type="text/html"/>
 		<id>https://iamonyou.top/blog/deploy-zola-to-cf-pages/</id>
-		<content type="html">&lt;p&gt;测试一下workflow
+		<content type="html">&lt;p&gt;测试一下workflow&lt;br &#x2F;&gt;
 测试一下deploy hook&lt;&#x2F;p&gt;
 </content>
 	</entry>

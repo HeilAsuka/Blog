@@ -6,3 +6,9 @@ author = "改改"
 测试一下workflow
 
 测试一下deploy hook
+买了一个域名之后想认真建个blog，于是看了看选了zola。
+
+结果部署到cf pages的时候掉坑了，他妈的cloudflare自带的zola版本太低了，就只能用 github actions 去build，然后用pages的deploy hook通知cf去部署，这时候记得把自动部署关了。然后deploy URL写到secret里面，别用明文。
+具体代码在下面的文件里。
+
+https://github.com/HeilAsuka/Blog/blob/main/.github/workflows/build%20and%20deploy.yaml

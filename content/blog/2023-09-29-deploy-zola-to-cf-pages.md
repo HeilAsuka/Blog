@@ -20,10 +20,6 @@ https://github.com/HeilAsuka/Blog/blob/main/.github/workflows/build%20and%20depl
 jobs:
   build-webiste:
     runs-on: ubuntu-22.04
-    permissions:
-      # Give the default GITHUB_TOKEN write permission to commit and push the
-      # added or changed files to the repository.
-      contents: write
     steps:
       - uses: actions/checkout@v4.1.0
         with:

@@ -16,7 +16,7 @@ author = "改改"
 
 https://github.com/HeilAsuka/Blog/blob/main/.github/workflows/build%20and%20deploy.yaml
 
-```
+```YAML
 jobs:
   build-webiste:
     runs-on: ubuntu-22.04

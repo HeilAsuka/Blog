@@ -10,11 +10,11 @@ author = "改改"
 
 结果部署到cf pages的时候掉坑了，改了，用了cloudflare自己的pages-action
 
-<del>他妈的cloudflare自带的zola版本太低了，就只能用 github actions 去build，然后用pages的deploy hook通知cf去部署，这时候记得把自动部署关了。然后deploy URL写到secret里面，别用明文。</del>
+~~他妈的cloudflare自带的zola版本太低了，就只能用 github actions 去build，然后用pages的deploy hook通知cf去部署，这时候记得把自动部署关了。然后deploy URL写到secret里面，别用明文。~~
 
 具体代码在下面的文件里。
 
-https://github.com/HeilAsuka/Blog/blob/main/.github/workflows/build%20and%20deploy.yaml
+<https://github.com/HeilAsuka/Blog/blob/main/.github/workflows/build%20and%20deploy.yaml>
 
 ```YAML
 jobs:
@@ -44,6 +44,26 @@ jobs:
           directory: ./public
           branch: main
           wranglerVersion: '3'
+```
+
+今天又把Waline加上了，用的是 `shortcodes`,文件链接在下面
+<https://github.com/HeilAsuka/Blog/blob/main/templates/shortcodes/comment.html>
+具体用法是这样的`{{/*comment(text='想说啥就说，憋着不好。')*/}}`
+
+```HTML
+<div>{% if text %}{{text}}{% endif %}</div>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
+<div id="waline"></div>
+<script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+    init({
+        el: '#waline',
+        serverURL: 'https://comment.iamonyou.top',
+        dark: 'html.dark',
+        imageUploader: false,
+    });
+</script>
 ```
 
 {{ comment(text='想说啥就说，憋着不好。') }}

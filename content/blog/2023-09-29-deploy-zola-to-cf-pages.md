@@ -8,19 +8,24 @@ author = "改改"
 测试一下deploy hook
 买了一个域名之后想认真建个blog，于是看了看选了zola。
 
-结果部署到cf pages的时候掉坑了，改了，用了cloudflare自己的pages-action
+结果部署到cf pages的时候掉坑了，改了，用了cloudflare自己的~~pages-action~~wrangler-action
 
 ~~他妈的cloudflare自带的zola版本太低了，就只能用 github actions 去build，然后用pages的deploy hook通知cf去部署，这时候记得把自动部署关了。然后deploy URL写到secret里面，别用明文。~~
 
 具体代码在下面的文件里。
-修改之后测试一下
+
 
 <https://github.com/HeilAsuka/Blog/blob/main/.github/workflows/build%20and%20deploy.yaml>
 
 ```YAML
+name: Build Zola Website
+
+on:
+  push:
+
 jobs:
   build-webiste:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.0
         with:
@@ -36,15 +41,13 @@ jobs:
       - name: "Build Website"
         id: build-website
         run: "zola build"
-      - name: Cloudflare Pages GitHub Action
-        uses: cloudflare/pages-action@v1.5.0
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: blog
-          directory: ./public
-          branch: main
-          wranglerVersion: '3'
+          packageManager: npm
+          command: pages deploy ./public --project-name=blog
 ```
 
 今天又把Waline加上了，用的是 `shortcodes`,文件链接在下面

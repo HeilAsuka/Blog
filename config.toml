@@ -37,7 +37,7 @@ render_emoji = true
 # Put all your custom variables here
 author = "HeilAsuka"
 display_author = true
-default_mode = "dark"
+default_theme = "dark"
 twitter_card = true
 
 [[extra.header_nav]]

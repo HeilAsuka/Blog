@@ -21,15 +21,6 @@ jobs:
       - name: "Build Website"
         id: build-website
         run: "zola build"
-      # - name: Cloudflare Pages GitHub Action
-      #   uses: cloudflare/pages-action@v1.5.0
-      #   with:
-      #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      #     projectName: blog
-      #     directory: ./public
-      #     branch: main
-      #     wranglerVersion: '3'
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
         with:

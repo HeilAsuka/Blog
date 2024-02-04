@@ -41,10 +41,9 @@ author = "HeilAsuka"
 display_author = true
 default_mode = "dark"
 twitter_card = true
+header_nav = [
+    { url = "/", name_en = "/home/"},
+    { url = "/about", name_en = "/about/"},
+    { url = "/blog", name_en = "/blog/"},
+]
 
-[[extra.header_nav]]
-en = { name = "/home/", url = "/" }
-[[extra.header_nav]]
-en = { name = "/about/", url = "/about" }
-[[extra.header_nav]]
-en = { name = "/blog/", url = "/blog" }

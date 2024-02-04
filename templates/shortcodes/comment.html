@@ -1,6 +1,11 @@
 <div>{% if text %}{{text}}{% endif %}</div>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
 <div id="waline"></div>
+<style type="text/css">
+    :root {
+        --waline-font-size:25px !important;
+    }
+</style>
 <script type="module">
     import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
 

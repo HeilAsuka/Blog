@@ -39,7 +39,8 @@ jobs:
         id: install-zola
         uses: taiki-e/install-action@v2
         with:
-          tool: zola@0.14.0
+          #tool: zola@0.14.0 旧版本会报错
+          tool:zola #我就改用新版本了
       - name: "Build Website"
         id: build-website
         run: "zola build"
